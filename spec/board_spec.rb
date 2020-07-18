@@ -24,14 +24,22 @@ describe Board do
 
   describe '#win?' do
     it 'returns true if a win case occurs' do
-      expect(board.win?).to be == false
-    end
-
-    it 'returns true if a win case occurs' do
       board.board[0] = 'x'
       board.board[1] = 'x'
       board.board[2] = 'x'
       expect(board.win?).to be == true
+    end
+    it 'returns false when game is draw and no winner' do
+      board.board[0] = 'o'
+      board.board[1] = 'o'
+      board.board[2] = 'x'
+      board.board[3] = 'x'
+      board.board[4] = 'x'
+      board.board[5] = 'o'
+      board.board[6] = 'o'
+      board.board[7] = 'o'
+      board.board[8] = 'x'
+      expect(board.win?).to eq(false)
     end
   end
 
